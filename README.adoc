@@ -1,0 +1,67 @@
+= Spring Boot & MVC com Thymeleaf
+
+Projeto desenvolvido e disponibilizado para fins de consultas e estudos.
+
+---
+
+=== Tecnologias
+----
+* Java
+* Maven
+* Spring Boot
+* JPA Hibernate
+* MySQL (local) / Postgres (Heroku)
+----
+
+=== Banco de dados
+```sql
+-- Create
+create database demo_mvc;
+```
+
+---
+
+=== Abordagem
+
+* *Classes de Domínio*
+    . Super classe para as entidades.
+* *Camada de Persistência*
+    . Configuração do banco de dados
+    . DAO genérico
+    . DAO específicos
+* *Camada de Serviço*
+    . Gerenciamento de transações
+    . Services
+* *Thymeleaf para as Views*
+    . Thymeleaf
+    . Template baseado em layout
+    . Fragmentação
+* *Controller & View*
+    . Inserção
+    . Listagem
+    . Edição
+    . Exclusão
+    . Pesquisa
+    . Alerta
+* *Validação Back-End*
+    . Validando formulário
+    . Validação de data com Spring Validator
+    . Convertendo String para Integer e validando
+* *Mensagens via messages.properties*
+* *Página de erro*
+    . Página de erro padrão do Thymeleaf
+    . Manipulando página de erro
+* *Finalização*
+    . Padronização de URLs internas
+
+=== Links
+
+https://demo-mvc-hugo.herokuapp.com/[*Aplicação hospedada no Heroku*]
+
+---
+
+Inspirado no(s) curso(s):
+
+* *Spring Boot & MVC com Thymeleaf*
+- https://www.udemy.com/course/spring-boot-mvc-com-thymeleaf/[Udemy | Professor Marcio Ballem]
+
