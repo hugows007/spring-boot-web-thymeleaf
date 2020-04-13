@@ -2,6 +2,7 @@ package br.com.curso.boot.service;
 
 import br.com.curso.boot.dao.CargoDao;
 import br.com.curso.boot.domain.Cargo;
+import br.com.curso.boot.util.PaginacaoUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -40,6 +41,11 @@ public class CargoServiceImpl implements CargoService {
     @Transactional(readOnly = true)
     public List<Cargo> buscarTodos() {
         return dao.findAll();
+    }
+
+    @Override
+    public PaginacaoUtil<Cargo> buscarPorPagina(int pagina, String direcao) {
+        return dao.buscaPaginada(pagina, direcao);
     }
 
     @Override

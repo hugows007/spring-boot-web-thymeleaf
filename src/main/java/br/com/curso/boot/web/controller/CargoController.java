@@ -4,6 +4,7 @@ import br.com.curso.boot.domain.Cargo;
 import br.com.curso.boot.domain.Departamento;
 import br.com.curso.boot.service.CargoService;
 import br.com.curso.boot.service.DepartamentoService;
+import br.com.curso.boot.util.PaginacaoUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.bind.BindResult;
 import org.springframework.stereotype.Controller;
@@ -14,6 +15,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/cargos")
@@ -31,8 +33,13 @@ public class CargoController {
     }
 
     @GetMapping("/listar")
-    public String listar(ModelMap modelMap) {
-        modelMap.addAttribute("cargos", cargoService.buscarTodos());
+    public String listar(ModelMap modelMap,
+                         @RequestParam(value = "page", defaultValue = "1") Integer page,
+                         @RequestParam(value = "dir", defaultValue = "asc") String dir) {
+
+        PaginacaoUtil<Cargo> pageCargo = cargoService.buscarPorPagina(page, dir);
+
+        modelMap.addAttribute("pageCargo", pageCargo);
         return "cargo/lista";
     }
 
@@ -73,7 +80,7 @@ public class CargoController {
             modelMap.addAttribute("success", "Cargo removido com sucesso");
         }
 
-        return listar(modelMap);
+        return listar(modelMap, null, null);
     }
 
     @ModelAttribute("departamentos")

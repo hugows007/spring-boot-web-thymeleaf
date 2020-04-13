@@ -1,6 +1,8 @@
 package br.com.curso.boot.service;
 
+import br.com.curso.boot.domain.Cargo;
 import br.com.curso.boot.domain.Departamento;
+import br.com.curso.boot.util.PaginacaoUtil;
 
 import java.util.List;
 

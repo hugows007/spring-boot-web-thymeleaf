@@ -1,6 +1,7 @@
 package br.com.curso.boot.service;
 
 import br.com.curso.boot.domain.Cargo;
+import br.com.curso.boot.util.PaginacaoUtil;
 
 import java.util.List;
 
@@ -14,6 +15,8 @@ public interface CargoService {
     Cargo buscarPorId(Long id);
 
     List<Cargo> buscarTodos();
+
+    PaginacaoUtil<Cargo> buscarPorPagina(int pagina, String direcao);
 
     boolean cargoTemFuncionarios(Long id);
 }

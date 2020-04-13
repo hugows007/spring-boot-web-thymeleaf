@@ -36,6 +36,7 @@ create database demo_mvc;
     . Thymeleaf
     . Template baseado em layout
     . Fragmentação
+    . Paginação
 * *Controller & View*
     . Inserção
     . Listagem
